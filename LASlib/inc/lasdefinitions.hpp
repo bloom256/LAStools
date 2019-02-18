@@ -180,7 +180,7 @@ public:
   F64 min_z;
 };
 
-class LASheader : public LASquantizer, public LASattributer
+class LASLIB_DLL LASheader : public LASquantizer, public LASattributer
 {
 public:
   CHAR file_signature[4];                  // starts at byte   0

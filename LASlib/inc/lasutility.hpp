@@ -36,7 +36,7 @@
 
 #include "lasdefinitions.hpp"
 
-class LASinventory
+class LASLIB_DLL LASinventory
 {
 public:
   BOOL active() const { return (first == FALSE); }; 
