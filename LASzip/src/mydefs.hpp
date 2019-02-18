@@ -34,7 +34,13 @@
 #define MYDEFS_HPP
 
 #ifndef _WIN32
+#ifdef COMPILE_AS_DLL
+#define LASLIB_DLL __attribute__((visibility("default")))
+#elif USE_AS_DLL
 #define LASLIB_DLL
+#else
+#define LASLIB_DLL
+#endif
 #else  // _WIN32
 #ifdef COMPILE_AS_DLL
 #define LASLIB_DLL __declspec(dllexport)
