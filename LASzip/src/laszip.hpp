@@ -91,6 +91,8 @@ typedef long long SIGNED_INT64;
 
 #define LASZIP_CHUNK_SIZE_DEFAULT           50000
 
+#include "mydefs.hpp"
+
 class LASitem
 {
 public:
@@ -101,7 +103,7 @@ public:
   const char* get_name() const;
 };
 
-class LASzip
+class LASLIB_DLL LASzip
 {
 public:
 

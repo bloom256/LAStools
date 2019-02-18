@@ -38,7 +38,7 @@
 #include "lasquantizer.hpp"
 #include "lasattributer.hpp"
 
-class LASwavepacket
+class LASLIB_DLL LASwavepacket
 {
 public:
   LASwavepacket() {zero();};
@@ -62,7 +62,7 @@ private:
   U8 data[29];
 };
 
-class LASpoint
+class LASLIB_DLL LASpoint
 {
 public:
 
