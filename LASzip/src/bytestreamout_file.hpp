@@ -34,6 +34,7 @@
 #define BYTE_STREAM_OUT_FILE_H
 
 #include "bytestreamout.hpp"
+#include "exceptions.hpp"
 
 #include <stdio.h>
 
@@ -120,12 +121,18 @@ inline BOOL ByteStreamOutFile::refile(FILE* file)
 
 inline BOOL ByteStreamOutFile::putByte(U8 byte)
 {
-  return (fputc(byte, file) == byte);
+  bool result (fputc(byte, file) == byte);
+  if (!result)
+	  throw LASwriterFileWritingError();
+  return result;
 }
 
 inline BOOL ByteStreamOutFile::putBytes(const U8* bytes, U32 num_bytes)
 {
-  return (fwrite(bytes, 1, num_bytes, file) == num_bytes);
+  bool result = (fwrite(bytes, 1, num_bytes, file) == num_bytes);
+  if (!result)
+	  throw LASwriterFileWritingError();
+  return result;
 }
 
 inline BOOL ByteStreamOutFile::isSeekable() const

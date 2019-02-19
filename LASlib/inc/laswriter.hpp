@@ -47,6 +47,7 @@
 #include "lasdefinitions.hpp"
 
 #include "lasutility.hpp"
+#include "exceptions.hpp"
 
 class LASLIB_DLL LASwriter
 {

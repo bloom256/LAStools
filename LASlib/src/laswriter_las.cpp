@@ -888,7 +888,16 @@ BOOL LASwriterLAS::open(ByteStreamOut* stream, const LASheader* header, U32 comp
 BOOL LASwriterLAS::write_point(const LASpoint* point)
 {
   p_count++;
-  return writer->write(point->point);
+  bool result;
+  try
+  {
+	  result = writer->write(point->point);
+  }
+  catch (const LASwriterFileWritingError &)
+  {
+	  return false;
+  }
+  return result;
 }
 
 BOOL LASwriterLAS::chunk()
